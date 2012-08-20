@@ -163,6 +163,10 @@ module Google
       calendar_data.xpath("//entry[title='#{@calendar}']/color/@value").first.value
     end
 
+    def caldendar_name
+      calendar_data.xpath("//entry[id='http://www.google.com/calendar/feeds/default/allcalendars/full/#{@calendar.gsub("@","%40")}']/title").text
+    end
+
     protected
 
     def event_lookup(query_string = '') #:nodoc:
